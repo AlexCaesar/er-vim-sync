@@ -168,6 +168,7 @@ let Tlist_Exit_OnlyWindow=1
 let g:winManagerWindowLayout='FileExplorer|BufExplorer'
 nmap wm :WMToggle<cr>
 map <F4> :TlistToggle<CR>
+map <C-I> :!echo %:p >> ~/Veditor<CR>
 
 "状态条
 "仅当编译时加入 |+statusline| 特性才有效
@@ -190,3 +191,5 @@ source ~/.vim/plugin/XPstatusline.vim
 ""set statusline+=%2*0x%-8B\ " current char
 "set statusline+=0x%-8B\ " current char
 "set statusline+=%-14.(%l,%c%V%)\ %<%P " offset 
+"set cursorcolumn
+set cursorline
