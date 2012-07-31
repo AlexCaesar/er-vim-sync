@@ -1,5 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ~/.vimrc                                                      "
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                                               "
 " Version: 0.2                                                  "
@@ -13,13 +12,6 @@ syntax on
 " 允许vim加载文件类型插件
 filetype plugin indent on
  
-" Don't remember source of this, i think it was already in my .vimrc
-" Tell vim to remember certain things when we exit
-"  '10 : marks will be remembered for up to 10 previously edited files
-"  "100 : will save up to 100 lines for each register
-"  :5000 : up to 5000 lines of command-line history will be remembered
-"  % : saves and restores the buffer list
-"  n... : where to save the viminfo files
 set viminfo='10,\"100,:5000,%,n~/.viminfo
  
 " omnicomplete 插件: http://vim.wikia.com/wiki/VimTip1386
@@ -44,7 +36,6 @@ vnoremap <C-P> :call PhpDocRange()<CR>
 :autocmd FileType php noremap <C-L> :!php -l %<CR>
  
 " Do use the currently active spell checking for completion though!
-" (I love this feature :-)
 set complete+=kspell
  
 " 禁用\t
@@ -55,9 +46,6 @@ set softtabstop=4
 " 高亮搜索结果
 set hlsearch
  
-" Taken from http://peterodding.com/code/vim/profile/vimrc
-" Make Vim open and close folded text as needed because I can't be bothered to
-" do so myself and wouldn't use text folding at all if it wasn't automatic.
 set foldmethod=marker
 " foldopen=all,insert foldclose=all
  
@@ -143,7 +131,7 @@ function! RunPhpcs()
     unlet l:phpcs_list[0]
     cexpr l:phpcs_list
     cwindow
-endfunction
+endfun
  
 set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
 command! Phpcs execute RunPhpcs()
@@ -173,23 +161,46 @@ map <C-I> :!echo %:p >> ~/Veditor<CR>
 "状态条
 "仅当编译时加入 |+statusline| 特性才有效
 source ~/.vim/plugin/XPstatusline.vim
-"set laststatus=2
-"set statusline=
-"set statusline+=%2*%-3.3n%0*\ " buffer number
-"set statusline+=%f\ " file name
-"set statusline+=%h%1*%m%r%w%0* " flag
-"set statusline+=[
-"if v:version >= 600
-"    set statusline+=%{strlen(&ft)?&ft:'none'}, " filetype
-"    set statusline+=%{&encoding}, " encoding
-"endif
-"set statusline+=%{&fileformat}] " file format
-"if filereadable(expand("$VIM/vimfiles/plugin/vimbuddy.vim"))
-"    set statusline+=\ %{VimBuddy()} " vim buddy
-"endif
-"set statusline+=%= " right align
-""set statusline+=%2*0x%-8B\ " current char
-"set statusline+=0x%-8B\ " current char
-"set statusline+=%-14.(%l,%c%V%)\ %<%P " offset 
-"set cursorcolumn
 set cursorline
+
+function! T0nyCopy()
+    call setline(line("."),"/**")
+    call append(line(".")," * ".expand("%"))
+    call append(line(".")+1," * @author T0ny<er@zhangabc.com>")
+    call append(line(".")+2," * @link http://www.zhangabc.com/" )
+    call append(line(".")+3," * @license http://www.zend.com/license/3_0.txt   PHP License 3.0")
+    call append(line(".")+4," * @date " . strftime("%Y-%m-%d %T"))
+    call append(line(".")+5," * @version $Id$ ")
+    call append(line(".")+6," */")
+endfun
+
+"------------------
+"solarized
+"------------------
+syntax enable
+"set background=light
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+
+":set fencs=utf-8,gbk,big5,euc-jp,utf-16
+":set fenc=utf-8 enc=utf-8 tenc=utf-8
+
+"------------------
+"GCC
+"------------------
+:nmap <C-c><C-c> :!gcc -Wall % -o %:r.out<CR>
+
+"-----------------
+"key mapping
+"-----------------
+nmap <tab> v>
+nmap <s-tab> v<
+vmap <tab> >gv
+vmap <s-tab> <gv
+"imap <F12> :call T0nyCopy*()<CR>
+
+
+
+
+
