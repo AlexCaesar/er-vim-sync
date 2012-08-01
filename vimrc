@@ -1,53 +1,50 @@
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                                               "
-" Version: 0.2                                                  "
-"                                                               "
-"                                                               "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
- 
-" 代码高亮
-syntax on
- 
-" 允许vim加载文件类型插件
+"-------------------
+"  Global
+"------------------ 
+set expandtab
+set shiftwidth=4
+set softtabstop=4
 filetype plugin indent on
- 
 set viminfo='10,\"100,:5000,%,n~/.viminfo
+set hlsearch
+set foldmethod=marker
+" foldopen=all,insert foldclose=all
+"
+set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
+command! Phpcs execute RunPhpcs()
+set nu
+set fileencodings=ucs-bom,utf-8,chinese,cp936
+set completeopt=longest,menu
+set enc=utf8
+set tabstop=4
+set backspace=2
+set dictionary-=~/.vim/funclist.txt dictionary+=~/.vim/funclist.txt
+set complete-=k complete+=k
+set tags=../tags,../../tags,../../../tags,../../../../tags,../../../../../tags,../../../../../../tags
+
  
-" omnicomplete 插件: http://vim.wikia.com/wiki/VimTip1386
+
+" omnicomplete  http://vim.wikia.com/wiki/VimTip1386
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
  
-"###########################
-"##       PHP             ##
-"###########################
+"--------------------------
+"         PHP             
+"--------------------------
 " php doc 插件
 source ~/.vim/plugin/php-doc.vim
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR>
 vnoremap <C-P> :call PhpDocRange()<CR>
- 
 " run file with PHP CLI (CTRL-M)
 :autocmd FileType php noremap <C-M> :w!<CR>:!php %<CR>
- 
 " PHP parser check (CTRL-L)
 :autocmd FileType php noremap <C-L> :!php -l %<CR>
- 
 " Do use the currently active spell checking for completion though!
 set complete+=kspell
- 
-" 禁用\t
-set expandtab
-set shiftwidth=4
-set softtabstop=4
- 
-" 高亮搜索结果
-set hlsearch
- 
-set foldmethod=marker
-" foldopen=all,insert foldclose=all
  
 " Enable enhanced command line completion.
 set wildmenu wildmode=list:full
@@ -75,6 +72,20 @@ let php_htmlInStrings=1
 let g:php_folding=2
 " set foldmethod=syntax
  
+" PHP code sniffer
+" If code sniffer is installed you can run it on current php file by running
+" :Phpcs
+function! RunPhpcs()
+    let l:filename=@%
+    let l:phpcs_output=system('phpcs --report=csv --standard=YMC '.l:filename)
+"    echo l:phpcs_output
+    let l:phpcs_list=split(l:phpcs_output, "\n")
+    unlet l:phpcs_list[0]
+    cexpr l:phpcs_list
+    cwindow
+endfun
+
+
 " --------------------
 " Project
 " --------------------
@@ -120,43 +131,12 @@ augroup JumpCursorOnEdit
  \ endif
 augroup END
  
-" PHP code sniffer
-" If code sniffer is installed you can run it on current php file by running
-" :Phpcs
-function! RunPhpcs()
-    let l:filename=@%
-    let l:phpcs_output=system('phpcs --report=csv --standard=YMC '.l:filename)
-"    echo l:phpcs_output
-    let l:phpcs_list=split(l:phpcs_output, "\n")
-    unlet l:phpcs_list[0]
-    cexpr l:phpcs_list
-    cwindow
-endfun
- 
-set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
-command! Phpcs execute RunPhpcs()
-set nu
-set fileencodings=ucs-bom,utf-8,chinese,cp936
-set completeopt=longest,menu
-set enc=utf8
-set tabstop=4
-
-map <F2> :NERDTreeToggle<CR>
-set tabstop=4
-set backspace=2
-
-set dictionary-=~/.vim/funclist.txt dictionary+=~/.vim/funclist.txt
-set complete-=k complete+=k
-set tags=../tags,../../tags,../../../tags,../../../../tags,../../../../../tags,../../../../../../tags
 
 let Tlist_Ctags_Cmd = "/usr/local/Cellar/ctags/5.8/bin/ctags"
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 "let g:winManagerWindowLayout='FileExplorer|TagList'
 let g:winManagerWindowLayout='FileExplorer|BufExplorer'
-nmap wm :WMToggle<cr>
-map <F4> :TlistToggle<CR>
-map <C-I> :!echo %:p >> ~/Veditor<CR>
 
 "状态条
 "仅当编译时加入 |+statusline| 特性才有效
@@ -193,14 +173,15 @@ colorscheme solarized
 
 "-----------------
 "key mapping
+" <leader>ff call g:Jsbeautify()
 "-----------------
+map <F2> :NERDTreeToggle<CR>
+nmap wm :WMToggle<cr>
+map <F4> :TlistToggle<CR>
+map <C-I> :!echo %:p >> ~/Veditor<CR>
 nmap <tab> v>
 nmap <s-tab> v<
 vmap <tab> >gv
 vmap <s-tab> <gv
 "imap <F12> :call T0nyCopy*()<CR>
-
-
-
-
 
