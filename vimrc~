@@ -1,40 +1,3 @@
-"-------------------
-"  vim plugin manage : vundle
-"------------------ 
-set nocompatible               " be iMproved
-filetype off                   " required!
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-
-" My Bundles here:
-"
-" original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
-" vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-" non github repos
-Bundle 'git://git.wincent.com/command-t.git'
-" ...
-
-filetype plugin indent on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
 
 "-------------------
 "  Global
@@ -132,6 +95,13 @@ nmap <silent> <F3> <Plug>ToggleProject
 "let g:proj_window_width = 30
 "let g:proj_window_increment = 150
  
+nnoremap <silent> <F8> :TlistToggle<CR>
+let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
+let Tlist_Show_One_File = 1       " Only show tags for current buffer
+let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
+let tlist_sql_settings = 'sql;P:package;t:table'
+let tlist_ant_settings = 'ant;p:Project;r:Property;t:Target'
+ 
 " auto change directory from: http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h | endif
  
@@ -170,8 +140,7 @@ let g:winManagerWindowLayout='FileExplorer|BufExplorer'
 
 "状态条
 "仅当编译时加入 |+statusline| 特性才有效
-"source ~/.vim/plugin/XPstatusline.vim
-let g:Powerline_symbols = 'fancy'
+source ~/.vim/plugin/XPstatusline.vim
 set cursorline
 
 function! T0nyCopy()
@@ -186,19 +155,13 @@ function! T0nyCopy()
 endfun
 
 "------------------
-" colorscheme solarized ...
+"solarized
 "------------------
 syntax enable
-syntax on
 "set background=light
-set background=dark
+i"set background=dark
 let g:solarized_termcolors=256
-let g:solarized_termtrans = 1
 colorscheme solarized
-"colorscheme desert256
-"colorscheme manuscript  "GUI only
-
-
 
 ":set fencs=utf-8,gbk,big5,euc-jp,utf-16
 ":set fenc=utf-8 enc=utf-8 tenc=utf-8
@@ -228,25 +191,5 @@ vmap <s-tab> <gv
 let g:vimwiki_list = [ {"path": "~/vimwiki/", "path_html": "~/wiki/",  "syntax": "markdown", "auto_export": 0}]
 
 
-"-----------------------
-"indent_line
-"-----------------------
 set textwidth=80
 set cc=+1
-let g:indent_guides_guide_size=1
-
-"--------------------
-"notes 
-"-------------------
-:let g:notes_directory = '~/Documents/Notes'
-
-"------------------
-"tag list
-"-----------------
-nmap <silent> <F4> :TagbarToggle<CR>
-let g:tagbar_ctags_bin = '/usr/local/Cellar/ctags/5.8/bin/ctags'
-let g:tagbar_width = 30
-
-
-
-
