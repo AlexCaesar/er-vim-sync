@@ -225,15 +225,15 @@ vmap <s-tab> <gv
 "-----------------
 "vimwiki
 "-----------------
-let g:vimwiki_list = [ {"path": "~/vimwiki/", "path_html": "~/wiki/",  "syntax": "markdown", "auto_export": 0}]
+let g:vimwiki_list = [ {"path": "~/vimwiki/", "path_html": "~/wiki/",  "syntax": "markdown",  "ext": ".md"}]
 
 
 "-----------------------
 "indent_line
 "-----------------------
-set textwidth=80
-set cc=+1
-let g:indent_guides_guide_size=1
+"set textwidth=80
+"set cc=+1
+"let g:indent_guides_guide_size=1
 
 "--------------------
 "notes 
