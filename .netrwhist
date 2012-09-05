@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Volumes/LiD/code/200/ui/script'
+let g:netrw_dirhist_2='/Volumes/LiD/code/tools/location-of-Instiki/config'
+let g:netrw_dirhist_3='/Volumes/Tony/pear'
+let g:netrw_dirhist_4='/Volumes/Tony/php5310'
+let g:netrw_dirhist_5='/tmp'
