@@ -176,7 +176,7 @@ set cursorline
 
 function! T0nyCopy()
     call setline(line("."),"/**")
-    call append(line(".")," * ".expand("%"))
+    call append(line(".")," * @filename".expand("%"))
     call append(line(".")+1," * @author T0ny<er@zhangabc.com>")
     call append(line(".")+2," * @link http://www.zhangabc.com/" )
     call append(line(".")+3," * @license http://www.zend.com/license/3_0.txt   PHP License 3.0")
