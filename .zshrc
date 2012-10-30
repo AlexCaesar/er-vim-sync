@@ -30,7 +30,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/Volumes/Tony/pear/bin:/Volumes/Tony/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Volumes/Tony/bin:/Volumes/Tony/.rvm/bin
+export PATH=~/pear/bin:~/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:~/bin:~/.rvm/bin
 export EDITOR="vim"
 bindkey -v 
 # vi style incremental search
