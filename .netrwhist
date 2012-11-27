@@ -1,3 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/Volumes/Tony/.ssh'
+let g:netrw_dirhist_2='/Volumes/LiD/C/code/work/ks/iknow_1001-1-59_BRANCH/conf'
+let g:netrw_dirhist_3='/Volumes/LiD/C/code/1.0.1/.idea'
