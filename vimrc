@@ -15,11 +15,6 @@ syntax enable
 syntax on
 colorscheme desert
 
-"-----------------
-"vimwiki
-"-----------------
-let g:vimwiki_list = [ {"path": "~/vimwiki/", "path_html": "~/wiki/",  "syntax": "markdown",  "ext": ".md"}]
-"======================End vimwiki=========================
 
 "-------------------
 " vim plugin manage : vundle  
@@ -62,6 +57,10 @@ Bundle "CmdlineComplete"
 "Bundle "qiushibaike"
 Bundle "JSON.vim"
 Bundle "AutoComplPop"
+Bundle "vim-scripts/calendar.vim--Matsumoto"
+"Bundle "git://github.com/vim-scripts/calendar.vim--Matsumoto.git"
+Bundle "vktheming"
+Bundle "minibufexplorerpp"
 
 " Brief help
 " :BundleList          - list configured bundles
@@ -78,7 +77,23 @@ filetype plugin indent on     " required!
 "-----------------
 "vimwiki
 "-----------------
-let g:vimwiki_list = [ {"path": "~/vimwiki/", "path_html": "~/wiki/",  "syntax": "markdown",  "ext": ".md"}]
+let g:vimwiki_list = [ {"path": "~/vimwiki/", "path_html": "~/wiki/", "syntax":"markdown","ext": ".txt"}]
+" 标记为完成的 checklist 项目会有特别的颜色
+let g:vimwiki_hl_cb_checked = 1
+" 是否开启按语法折叠  会让文件比较慢
+let g:vimwiki_folding = 0
+let g:vimwiki_fold_lists = 0
+
+" 是否在计算字串长度时用特别考虑中文字符
+let g:vimwiki_CJK_length = 1
+" 支援html标记符
+let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
+
+let g:vimwiki_menu = ''
+let g:vimwiki_use_calendar = 0
+let g:vimwiki_hl_headers = 1
+
+"======================End vimwiki=========================
 
 "-----------------
 " PHP
