@@ -56,7 +56,7 @@ Bundle "CmdlineComplete"
 
 "Bundle "qiushibaike"
 Bundle "JSON.vim"
-Bundle "AutoComplPop"
+"Bundle "AutoComplPop"
 Bundle "vim-scripts/calendar.vim--Matsumoto"
 "Bundle "git://github.com/vim-scripts/calendar.vim--Matsumoto.git"
 Bundle "vktheming"
@@ -138,10 +138,10 @@ map <C-L> :!php -l %<CR>
 map <C-I> :!echo %:p >> /tmp/er_ide<CR>
 function! T0nyCopy()
     call setline(line("."),"/**")
-    call append(line(".")," * @filename".expand("%"))
-    call append(line(".")+1," * @author T0ny<er@zhangabc.com>")
-    call append(line(".")+2," * @link http://www.zhangabc.com/" )
-    call append(line(".")+3," * @license http://www.zend.com/license/3_0.txt   PHP License 3.0")
+    call append(line(".")," * @filename ".expand("%"))
+    call append(line(".")+1," * @author T0ny<z.y.f@msn.com>")
+    call append(line(".")+2," * @link http://www.erblah.com/" )
+    call append(line(".")+3," * @license http://www.zend.com/license/3_0.txt PHP License 3.0")
     call append(line(".")+4," * @date " . strftime("%Y-%m-%d %T"))
     call append(line(".")+5," * @version $Id$ ")
     call append(line(".")+6," */")
