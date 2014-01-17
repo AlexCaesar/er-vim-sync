@@ -26,8 +26,6 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle "gmarik/vundle"
-Bundle "Xdebug"
-Bundle "jsbeautify"
 
 " Syntax highlight
 Bundle "cucumber.zip"
@@ -38,10 +36,10 @@ Bundle "SuperTab"
 Bundle "file-line"
 Bundle "Align"
 Bundle "Mark"
-"Bundle "project.vim"
-"Bundle "ProjectTag"
 Bundle "https://github.com/Lokaltog/vim-powerline.git"
 Bundle "php-doc"
+Bundle "Xdebug"
+Bundle "jsbeautify"
 
 " Command-T
 Bundle "git://git.wincent.com/command-t.git"
@@ -54,13 +52,15 @@ Bundle "taglist.vim"
 Bundle "Conque-Shell"
 Bundle "CmdlineComplete"
 
-"Bundle "qiushibaike"
 Bundle "JSON.vim"
-"Bundle "AutoComplPop"
 Bundle "vim-scripts/calendar.vim--Matsumoto"
-"Bundle "git://github.com/vim-scripts/calendar.vim--Matsumoto.git"
 Bundle "vktheming"
-Bundle "minibufexplorerpp"
+"Bundle "project.vim"
+"Bundle "ProjectTag"
+"Bundle "qiushibaike"
+"Bundle "AutoComplPop"
+"Bundle "minibufexplorerpp"
+"Bundle "git://github.com/vim-scripts/calendar.vim--Matsumoto.git"
 
 " Brief help
 " :BundleList          - list configured bundles
@@ -135,7 +135,7 @@ colorscheme solarized
 "custom 
 "----------------
 map <C-L> :!php -l %<CR>
-map <C-I> :!echo %:p >> /tmp/er_ide<CR>
+map <C-I> :!echo %:p >> ~/er_ide<CR>
 function! T0nyCopy()
     call setline(line("."),"/**")
     call append(line(".")," * @filename ".expand("%"))
