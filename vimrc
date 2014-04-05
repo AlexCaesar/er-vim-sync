@@ -1,4 +1,8 @@
+"
+" vimrc  from  T0ny<z.y.f@msn.com>
+"
 set nocompatible               " be iMproved
+
 "-------------------
 "  Global
 "------------------ 
@@ -13,8 +17,7 @@ set foldmethod=marker
 set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
 syntax enable
 syntax on
-colorscheme desert
-
+let mapleader = ","       "Set mapleader
 
 "-------------------
 " vim plugin manage : vundle  
@@ -24,7 +27,6 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
 Bundle "gmarik/vundle"
 
 " Syntax highlight
@@ -57,9 +59,8 @@ Bundle "vim-scripts/calendar.vim--Matsumoto"
 Bundle "vktheming"
 "Bundle "project.vim"
 "Bundle "ProjectTag"
-"Bundle "qiushibaike"
 "Bundle "AutoComplPop"
-"Bundle "minibufexplorerpp"
+Bundle "minibufexplorerpp"
 "Bundle "git://github.com/vim-scripts/calendar.vim--Matsumoto.git"
 
 " Brief help
@@ -75,9 +76,14 @@ filetype plugin indent on     " required!
 "======================End vundle=========================
 
 "-----------------
+"minibuffer
+"-----------------
+let g:miniBufExplMapWindowNavArrows = 1
+
+"-----------------
 "vimwiki
 "-----------------
-let g:vimwiki_list = [ {"path": "~/vimwiki/", "path_html": "~/wiki/", "syntax":"markdown","ext": ".txt"}]
+let g:vimwiki_list = [ {"path": "~/.wiki/notes/vimwiki/", "path_html": "~/wiki/", "syntax":"markdown","ext": ".txt"}]
 " 标记为完成的 checklist 项目会有特别的颜色
 let g:vimwiki_hl_cb_checked = 1
 " 是否开启按语法折叠  会让文件比较慢
@@ -116,9 +122,6 @@ set encoding=utf8
 "------------------
 "" colorscheme solarized ...
 "------------------
-syntax enable
-syntax on
-"set background=light
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans = 1
