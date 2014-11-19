@@ -39,8 +39,8 @@ Bundle "file-line"
 Bundle "Align"
 Bundle "Mark"
 Bundle "https://github.com/Lokaltog/vim-powerline.git"
-Bundle "php-doc"
-Bundle "Xdebug"
+"Bundle "php-doc"
+"Bundle "Xdebug"
 Bundle "jsbeautify"
 
 " Command-T
@@ -49,10 +49,10 @@ let g:CommandTMatchWindowAtTop=1 " show window at top
 
 " Other
 Bundle "vimwiki"
-Bundle "The-NERD-tree"
+"Bundle "The-NERD-tree"
 Bundle "taglist.vim"
-Bundle "Conque-Shell"
-Bundle "CmdlineComplete"
+"Bundle "Conque-Shell"
+"Bundle "CmdlineComplete"
 
 Bundle "JSON.vim"
 Bundle "vim-scripts/calendar.vim--Matsumoto"
@@ -60,7 +60,7 @@ Bundle "vktheming"
 "Bundle "project.vim"
 "Bundle "ProjectTag"
 "Bundle "AutoComplPop"
-Bundle "minibufexplorerpp"
+"Bundle "minibufexplorerpp"
 "Bundle "git://github.com/vim-scripts/calendar.vim--Matsumoto.git"
 
 " Brief help
